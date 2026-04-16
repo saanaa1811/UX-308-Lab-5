@@ -10,23 +10,29 @@ export function clearInput(){
 
 function welcoming() {
   let aReturn = [];
-  currentState = reserving;
-  aReturn.push("Welcome to Rich's Acton Rapid Test.");
-  aReturn.push("Would you like to reserve a rapid test kit?");
+  currentState = ordering;
+  aReturn.push("Welcome to Sana's Coffee.");
+  aReturn.push("Would you like to order something from our menu?");
   return aReturn;
 }
 
-function reserving(sInput) {
+function ordering(sInput) {
   let aReturn = [];
   currentState = welcoming
   if (sInput.toLowerCase().startsWith('y')) {
-    aReturn.push(`Your rapid test is reserved`);
+    aReturn.push("Here is our menu:");
+    aReturn.push("☕ Coffee");
+    aReturn.push("Iced Coffee");
+    aReturn.push("Green Tea");
+    aReturn.push("Croissant");
+    aReturn.push("Cake");
+    aReturn.push("Your order has been placed!");
     let d = new Date();
-    d.setMinutes(d.getMinutes() + 120);
-    aReturn.push(`Please pick it up at 123 Tidy St., Acton before ${d.toTimeString()}`);
+    d.setMinutes(d.getMinutes() + 10);
+    aReturn.push(`Please pick up your order before ${d.toTimeString()}`);
   } else {
-    aReturn.push("Thanks for trying our reservation system");
-    aReturn.push("Maybe next time");
+    aReturn.push("Thanks for visiting Sana's Coffee");
+    aReturn.push("See you next time!");
   }
   return aReturn;
 }
